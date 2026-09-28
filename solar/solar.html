@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WireLab — Virtual Electrical Training</title>
+
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="solar.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="header-glass">
+
+        <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div>
+                <h1>WIRELAB</h1>
+            </div>
+        </div>
+
+        <nav class="site-navigation">
+
+            <a href="../index.html" class="nav-button">HOME</a>
+            <a href="../study/study.html" class="nav-button">STUDY</a>
+            <a href="../labs/labs.html" class="nav-button">LABS</a>
+            <a href="../solar/solar.html" class="nav-button active">SOLAR</a>
+            <a href="../testing/testing.html" class="nav-button">TESTING</a>
+            <a href="../tools/tools.html" class="nav-button">TOOLS</a>
+
+        </nav>
+
+        <div class="header-icons">
+
+            <a
+                href="../accounts/accounts.html"
+                class="profile-square"
+                id="navbar-profile">
+                ♙
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     SOLAR PAGE CONTENT
+====================================================== -->
+
+<main class="solar-content page-width">
+<!-- =================================================
+         HERO
+    ================================================== -->
+    <img
+        src="../z-images/wirelab-solar-art.webp"
+        class="solar-art"
+        alt="WireLab Solar Electrical Training"
+    >
+
+
+<!-- =================================================
+         PAGE INTRO
+    ================================================== -->
+    <section class="solar-intro">
+        <span class="section-label">PV TRAINING TOOL</span>
+        <p>
+            Practice photovoltaic system calculations using real electrical
+            values. Estimate array power, current, energy production,
+            inverter loading, and basic PV system performance.
+        </p>
+    </section>
+
+
+<!-- =================================================
+         CALCULATOR
+    ================================================== -->
+    <section class="solar-calculator">
+        <div class="calculator-header">
+            <div>
+                <span class="card-label">SYSTEM INPUTS</span>
+                <h3>PV System Sizing</h3>
+            </div>
+            <button
+                type="button"
+                class="reset-button"
+                id="resetCalculator">
+                RESET
+            </button>
+        </div>
+
+        <!-- INPUTS -->
+        <div class="input-grid">
+            <div class="input-group">
+                <label for="panelWatts">
+                    Panel Wattage
+                    <span>W</span>
+                </label>
+                <input
+                    type="number"
+                    id="panelWatts"
+                    value="400"
+                    min="1"
+                    step="1">
+            </div>
+
+            <div class="input-group">
+                <label for="panelCount">
+                    Number of Panels
+                    <span>PCS</span>
+                </label>
+                <input
+                    type="number"
+                    id="panelCount"
+                    value="10"
+                    min="1"
+                    step="1">
+            </div>
+
+            <div class="input-group">
+                <label for="systemVoltage">
+                    System Voltage
+                    <span>V</span>
+                </label>
+                <input
+                    type="number"
+                    id="systemVoltage"
+                    value="240"
+                    min="1"
+                    step="1">
+            </div>
+
+            <div class="input-group">
+                <label for="sunHours">
+                    Peak Sun Hours
+                    <span>H/DAY</span>
+                </label>
+                <input
+                    type="number"
+                    id="sunHours"
+                    value="5"
+                    min="0"
+                    step="0.1">
+            </div>
+
+            <div class="input-group">
+                <label for="systemLoss">
+                    System Losses
+                    <span>%</span>
+                </label>
+                <input
+                    type="number"
+                    id="systemLoss"
+                    value="15"
+                    min="0"
+                    max="100"
+                    step="1">
+            </div>
+
+            <div class="input-group">
+                <label for="inverterEfficiency">
+                    Inverter Efficiency
+                    <span>%</span>
+                </label>
+                <input
+                    type="number"
+                    id="inverterEfficiency"
+                    value="96"
+                    min="1"
+                    max="100"
+                    step="1">
+            </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results-grid">
+            <div class="result-card">
+                <span>ARRAY POWER</span>
+                <strong id="arrayPower">4,000 W</strong>
+                <small>Total DC array capacity</small>
+            </div>
+
+            <div class="result-card">
+                <span>ARRAY CURRENT</span>
+                <strong id="arrayCurrent">16.67 A</strong>
+                <small>Estimated at system voltage</small>
+            </div>
+
+            <div class="result-card">
+                <span>DAILY ENERGY</span>
+                <strong id="dailyEnergy">17.00 kWh</strong>
+                <small>After system losses</small>
+            </div>
+
+            <div class="result-card">
+                <span>MONTHLY ENERGY</span>
+                <strong id="monthlyEnergy">510.00 kWh</strong>
+                <small>30-day estimate</small>
+            </div>
+
+            <div class="result-card">
+                <span>AC OUTPUT</span>
+                <strong id="acOutput">3.84 kW</strong>
+                <small>After inverter efficiency</small>
+            </div>
+
+            <div class="result-card">
+                <span>INVERTER LOADING</span>
+                <strong id="inverterLoading">4.17 kW</strong>
+                <small>Suggested minimum inverter capacity</small>
+            </div>
+        </div>
+    </section>
+    
+    
+
+ <!-- =================================================
+         FORMULAS
+    ================================================== -->
+    <section class="solar-reference">
+        <div class="reference-header">
+            <span class="section-label">QUICK REFERENCE</span>
+            <h2>PV Electrical Formulas</h2>
+        </div>
+
+        <div class="formula-grid">
+            <div class="formula-card">
+                <span>ARRAY POWER</span>
+                <strong>P = Panel W × Panels</strong>
+                <p>
+                    Determines the total rated DC power of the PV array.
+                </p>
+            </div>
+
+            <div class="formula-card">
+                <span>POWER</span>
+                <strong>P = E × I</strong>
+                <p>
+                    Electrical power equals voltage multiplied by current.
+                </p>
+            </div>
+
+            <div class="formula-card">
+                <span>CURRENT</span>
+                <strong>I = P ÷ E</strong>
+                <p>
+                    Current can be calculated when power and voltage are known.
+                </p>
+            </div>
+
+            <div class="formula-card">
+                <span>ENERGY</span>
+                <strong>kWh = kW × Hours</strong>
+                <p>
+                    Estimates electrical energy produced over time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+<!-- =================================================
+         FIELD KNOWLEDGE
+    ================================================== -->
+    <section class="solar-notes">
+        <span class="section-label">FIELD KNOWLEDGE</span>
+        <h2>Things Electricians Should Watch</h2>
+
+        <div class="knowledge-grid">
+            <article>
+                <h3>☀ Solar Radiation</h3>
+                <p>
+                    Increased solar irradiance generally increases PV current.
+                    Shading can significantly reduce array output.
+                </p>
+            </article>
+
+            <article>
+                <h3>🌡 Temperature</h3>
+                <p>
+                    PV module voltage generally decreases as module temperature
+                    increases. Cold temperatures can produce higher operating
+                    voltages.
+                </p>
+            </article>
+
+            <article>
+                <h3>⚡ Voltage</h3>
+                <p>
+                    PV strings must be evaluated for maximum voltage under the
+                    expected environmental conditions before equipment is selected.
+                </p>
+            </article>
+
+            <article>
+                <h3>🔧 Installation</h3>
+                <p>
+                    Conductor sizing, overcurrent protection, disconnects,
+                    grounding, equipment ratings, and code requirements must be
+                    evaluated for the actual installation.
+                </p>
+            </article>
+        </div>
+    </section>
+
+<!-- =================================================
+         DISCLAIMER
+    ================================================== -->
+    <section class="solar-disclaimer">
+        <strong>STUDENT TRAINING TOOL</strong>
+        <p>
+            This calculator is intended for educational practice.
+            Actual PV system design requires site-specific information,
+            equipment specifications, applicable electrical codes, manufacturer
+            instructions, and qualified design review.
+        </p>
+    </section>
+</main>
+
+
+
+</main>
+
+
+<script src="../nav.js"></script>
+<script src="solar.js"></script>
+
+</body>
+</html>

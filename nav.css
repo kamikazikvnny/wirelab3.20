@@ -1,0 +1,377 @@
+/* =====================================================
+   WIRELAB FUTURE GLASS NAVBAR
+===================================================== */
+html {
+    background:#07131a;
+    overflow-y:scroll;
+}
+
+/* =====================================================
+   GLOBAL PAGE WIDTH
+===================================================== */
+.page-width {
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    padding-top:104px;
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(20,80,110,.35),
+        transparent 40%
+    ),
+    #07131a;
+    color:white;
+}
+
+@media (max-width:800px) {
+    body {
+        padding-top:76px;
+        padding-bottom:70px;
+    }
+}
+
+@media (max-width:500px) {
+    body {
+        padding-top:62px;
+    }
+}
+
+/* =====================================================
+   FIXED NAVBAR CONTENT OFFSET
+===================================================== */
+main,
+section:first-of-type {
+    scroll-margin-top: 60px;
+}
+
+.site-header h1 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow", sans-serif;
+}
+
+.site-header {
+    width:100%;
+    padding:
+    18px clamp(20px, 4vw, 50px);
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:9999;
+    box-sizing:border-box;
+}
+
+.header-glass {
+    width:100%;
+    max-width:1600px;
+    margin:auto;
+    min-height: 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:
+    0 clamp(16px, 3vw, 32px);
+    box-sizing:border-box;
+    border-radius:24px;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.08),
+        rgba(10,20,30,.75)
+    );
+    border:1px solid rgba(160,190,210,.25);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 20px 60px rgba(0,0,0,.55);
+}
+
+/* BRAND */
+.brand {
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.brand-icon {
+font-size:42px;
+color:#d9aa2b;
+filter:
+drop-shadow(
+0 0 12px rgba(218,170,43,.6)
+);
+}
+
+.brand h1 {
+margin:0;
+font-size:28px;
+font-weight:500;
+letter-spacing:4px;
+color:#dce2e5;
+}
+
+/* NAVIGATION */
+.site-navigation {
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.nav-button {
+position:relative;
+padding:
+15px 16px;
+color:#c6d0d5;
+text-decoration:none;
+font-size:15px;
+letter-spacing:.5px;
+transition:.3s;
+}
+
+.nav-button:hover {
+color:white;
+}
+
+/* GOLD ACTIVE */
+.nav-button.active {
+color:#e0ae32;
+}
+
+.nav-button.active::after {
+content:"";
+position:absolute;
+bottom:0;
+left:20%;
+right:20%;
+height:3px;
+background:#d9aa2b;
+box-shadow:
+0 0 15px #d9aa2b;
+border-radius:10px;
+}
+
+/* ICONS */
+.header-icons {
+display:flex;
+gap:25px;
+font-size:28px;
+color:#d0d7db;
+}
+
+.header-icons span {
+cursor:pointer;
+transition:.3s;
+}
+
+.header-icons span:hover {
+color:#d9aa2b;
+}
+
+/* =====================================================
+   PROFILE SQUARE
+===================================================== */
+.profile-square {
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+    color:#d0d7db;
+    text-decoration:none;
+    font-size:22px;
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.10),
+        rgba(10,25,32,.75)
+    );
+
+    border:1px solid rgba(160,190,210,.35);
+    clip-path:
+    polygon(
+        7px 0,
+        calc(100% - 7px) 0,
+        100% 7px,
+        100% calc(100% - 7px),
+        calc(100% - 7px) 100%,
+        7px 100%,
+        0 calc(100% - 7px),
+        0 7px
+    );
+
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 0 15px rgba(50,180,210,.10);
+}
+
+.profile-square:hover {
+    color:#d9aa2b;
+    border-color:rgba(217,170,43,.55);
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 0 18px rgba(217,170,43,.18);
+}
+
+/* =====================================================
+   RESPONSIVE NAVIGATION
+===================================================== */
+@media(max-width:1100px){
+    .header-glass {
+        padding:0 18px;
+    }
+    .brand {
+        gap:12px;
+        flex:0 0 auto;
+    }
+    .brand-icon {
+        font-size:34px;
+    }
+    .brand h1 {
+        font-size:22px;
+        letter-spacing:3px;
+    }
+    .site-navigation {
+        flex:1 1 auto;
+        min-width:0;
+        justify-content:space-evenly;
+        gap:0;
+    }
+    .nav-button {
+        flex:1 1 0;
+        min-width:0;
+        padding:28px 4px;
+        text-align:center;
+        font-size:13px;
+        white-space:nowrap;
+    }
+    .header-icons {
+        flex:0 0 auto;
+        gap:12px;
+        font-size:24px;
+    }
+}
+
+@media(max-width:800px){
+    .site-header {
+        padding:6px;
+    }
+    .header-glass {
+        min-height:50px;
+        padding:0 10px;
+        gap:8px;
+        flex-wrap:nowrap;
+    }
+    .brand {
+        flex:0 0 auto;
+        gap:8px;
+    }
+    .brand-icon {
+        font-size:28px;
+    }
+    .brand h1 {
+        font-size:20px;
+        letter-spacing:2px;
+        white-space:nowrap;
+    }
+    .site-navigation {
+        flex:1 1 auto;
+        min-width:0;
+        display:flex;
+        justify-content:space-evenly;
+        gap:0;
+        overflow:hidden;
+    }
+    .nav-button {
+        flex:1 1 0;
+        min-width:0;
+        padding:22px 2px;
+        text-align:center;
+        font-size:11px;
+        letter-spacing:0;
+        white-space:nowrap;
+    }
+    .header-icons {
+        position:static;
+        flex:0 0 auto;
+        gap:8px;
+        font-size:22px;
+    }
+    .profile-square {
+        width:34px;
+        height:34px;
+        font-size:19px;
+    }
+}
+
+@media(max-width:500px){
+    .site-header {
+        padding:5px;
+    }
+    .header-glass {
+        min-height:52px;
+        padding:0 7px;
+        gap:5px;
+    }
+    .brand {
+        gap:2px;
+    }
+    .brand-icon {
+        font-size:18px;
+    }
+    .brand h1 {
+        font-size:14px;
+        letter-spacing:1px;
+    }
+    .site-navigation {
+        flex:1 1 auto;
+        justify-content:space-evenly;
+        gap:0;
+    }
+    .nav-button {
+        flex:1 1 0;
+        padding:18px 1px;
+        font-size:10px;
+        text-align:center;
+    }
+    .header-icons {
+        gap:5px;
+        font-size:19px;
+    }
+    .profile-square {
+        width:30px;
+        height:30px;
+        font-size:17px;
+    }
+}
+
+/* =====================================================
+   NAVBAR PROFILE PNG
+===================================================== */
+.profile-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* =========================================================
+   DISABLE NAVBAR LOAD ANIMATION
+========================================================= */
+.site-header,
+.site-navigation,
+.site-header *,
+.site-navigation * {
+    animation: none !important;
+    transition: none !important;
+}
+
+
+
